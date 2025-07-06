@@ -30,6 +30,8 @@ const defaultTheme = createTheme();
 
 const customShadows: Shadows = [...defaultTheme.shadows];
 
+export const header = 'rgb(207, 255, 129)';
+
 export const brand = {
     50: 'hsl(210, 100%, 95%)',
     100: 'hsl(210, 100%, 92%)',
@@ -183,34 +185,43 @@ export const getDesignTokens = (mode: PaletteMode) => {
             },
         },
         typography: {
-            fontFamily: 'Inter, sans-serif',
+            fontFamily: 'Roboto, sans-serif',
             h1: {
                 fontSize: defaultTheme.typography.pxToRem(48),
                 fontWeight: 600,
                 lineHeight: 1.2,
                 letterSpacing: -0.5,
+                textTransform: 'uppercase',
             },
             h2: {
                 fontSize: defaultTheme.typography.pxToRem(36),
                 fontWeight: 600,
                 lineHeight: 1.2,
+                textTransform: 'uppercase',
             },
             h3: {
                 fontSize: defaultTheme.typography.pxToRem(30),
                 lineHeight: 1.2,
+                textTransform: 'uppercase',
+
             },
             h4: {
                 fontSize: defaultTheme.typography.pxToRem(24),
                 fontWeight: 600,
                 lineHeight: 1.5,
+                textTransform: 'uppercase',
             },
             h5: {
                 fontSize: defaultTheme.typography.pxToRem(20),
                 fontWeight: 600,
+                textTransform: 'uppercase',
+
             },
             h6: {
                 fontSize: defaultTheme.typography.pxToRem(18),
-                fontWeight: 600,
+            fontWeight: 600,
+                textTransform: 'uppercase',
+
             },
             subtitle1: {
                 fontSize: defaultTheme.typography.pxToRem(18),
@@ -341,34 +352,40 @@ export const colorSchemes = {
 };
 
 export const typography = {
-    fontFamily: 'Inter, sans-serif',
+    fontFamily: 'Roboto, sans-serif',
     h1: {
         fontSize: defaultTheme.typography.pxToRem(48),
         fontWeight: 600,
         lineHeight: 1.2,
         letterSpacing: -0.5,
+        color: header,
     },
     h2: {
         fontSize: defaultTheme.typography.pxToRem(36),
         fontWeight: 600,
         lineHeight: 1.2,
+        color: header,
     },
     h3: {
         fontSize: defaultTheme.typography.pxToRem(30),
         lineHeight: 1.2,
+        color: header,
     },
     h4: {
         fontSize: defaultTheme.typography.pxToRem(24),
         fontWeight: 600,
         lineHeight: 1.5,
+        color: header,
     },
     h5: {
         fontSize: defaultTheme.typography.pxToRem(20),
         fontWeight: 600,
+        color: header,
     },
     h6: {
         fontSize: defaultTheme.typography.pxToRem(18),
         fontWeight: 600,
+        color: header,
     },
     subtitle1: {
         fontSize: defaultTheme.typography.pxToRem(18),
