@@ -71,7 +71,7 @@ export const SectionIntro = () => (
     </Typography>
     <Grid container spacing={2}>
       <Grid container direction="column" size={{xs: 12, lg: 9}} spacing={2}>
-        <Grid size={12}>
+        <Grid size={12} flexGrow={1}>
           <Card variant="elevation" sx={{height: '100%'}}>
             <CardContent>
               <Typography typography="h3">Greetings!</Typography>

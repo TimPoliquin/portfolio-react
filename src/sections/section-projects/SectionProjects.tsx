@@ -6,6 +6,7 @@ import {ImageListItem, Typography} from '@mui/material';
 import ImageList from '@mui/material/ImageList';
 import {styled} from '@mui/material/styles';
 import {GitHub} from '@mui/icons-material';
+import {SectionHeader} from 'components/section-header/SectionHeader';
 
 const olympiaImages = [
   'projects/olympia/olympia-01.jpg',
@@ -19,6 +20,8 @@ const LinkList = styled('ul')(() => ({
   textAlign: 'right',
   display: 'flex',
   flexDirection: 'row',
+  justifyContent: 'flex-end',
+  margin: 0,
 }));
 
 const LinkRowItem = styled('li')(({theme}) => ({
@@ -46,18 +49,16 @@ const Steam = styled('img')(() => ({
 
 export const SectionProjects = () => (
   <Grid container spacing={2}>
-    <Typography typography="h2">Shipped Projects</Typography>
+    <SectionHeader title="Shipped Projects" />
     <Grid container spacing={2}>
       <Paper sx={{p: 2}}>
-        <Grid container spacing={2}>
-          <Grid size={{xs: 12, md: 5}}>
+        <Grid container spacing={1}>
+          <Grid size={8}>
             <Typography typography="h3">
               Olympia: Festival of the Gods
             </Typography>
-            <Typography typography="body1">
-              Solo-Developed by Tim Poliquin
-            </Typography>
-            <Typography typography="h4">Check it out!</Typography>
+          </Grid>
+          <Grid size={4} justifySelf={'flex-end'}>
             <LinkList>
               <LinkRow
                 title="GitHub"
@@ -72,6 +73,13 @@ export const SectionProjects = () => (
                 <Steam src="steam.png" alt="steam logo" />
               </LinkRow>
             </LinkList>
+          </Grid>
+          <Grid container direction="column" size={{xs: 12, md: 5}} spacing={2}>
+            <Grid size={12}>
+              <Typography typography="body1">
+                Solo-Developed by Tim Poliquin
+              </Typography>
+            </Grid>
           </Grid>
           <Grid size={{xs: 12, lg: 7}}>
             <iframe
