@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import {Typography} from '@mui/material';
 
 export const SectionHeader = ({title}: {title: string}) => (
-  <Grid size={12} sx={{p: 2}}>
+  <Grid size={12} sx={{paddingTop: 4, paddingBottom: 0}}>
     <Typography
       typography="h2"
       sx={{

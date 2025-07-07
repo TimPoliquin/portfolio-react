@@ -1,5 +1,5 @@
 import type {ThemeOptions} from '@mui/material/styles';
-import {ThemeProvider, createTheme} from '@mui/material/styles';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
 import * as React from 'react';
 import {colorSchemes, shadows, shape, typography} from './themePrimitives';
 
@@ -18,6 +18,9 @@ export default function AppTheme(props: AppThemeProps) {
     return disableCustomTheme
       ? {}
       : createTheme({
+          palette: {
+            mode: 'dark',
+          },
           // For more details about CSS variables configuration, see https://mui.com/material-ui/customization/css-theme-variables/configuration/
           cssVariables: {
             colorSchemeSelector: 'data-mui-color-scheme',
@@ -36,7 +39,7 @@ export default function AppTheme(props: AppThemeProps) {
     return <React.Fragment>{children}</React.Fragment>;
   }
   return (
-    <ThemeProvider theme={theme} disableTransitionOnChange>
+    <ThemeProvider theme={theme} disableTransitionOnChange defaultMode="dark">
       {children}
     </ThemeProvider>
   );

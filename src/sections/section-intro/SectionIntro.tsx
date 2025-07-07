@@ -4,8 +4,11 @@ import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 import React from 'react';
 import {styled} from '@mui/material/styles';
-import {Card, CardContent, Chip, Theme, Typography} from '@mui/material';
-import {Chat, Email, GitHub, LinkedIn} from '@mui/icons-material';
+import {Card, CardContent, Theme, Typography} from '@mui/material';
+import {Email, GitHub, LinkedIn} from '@mui/icons-material';
+import {ChipList} from 'components/chip/ChipList';
+import {SectionHeader} from '../../components/section-header/SectionHeader';
+import {Discord} from '../../components/icons/Discord';
 
 const languages = [
   'C++',
@@ -30,6 +33,12 @@ const webTechnologies = [
 ];
 const ListItem = styled('li')(({theme}: {theme: Theme}) => ({
   margin: theme.spacing(0.5),
+  '& svg': {
+    fill: theme.palette.text.secondary,
+  },
+  '&:hover svg': {
+    fill: theme.palette.text.primary,
+  },
 }));
 const List = styled('ul')(({theme}) => ({
   marginBottom: theme.spacing(1),
@@ -54,21 +63,13 @@ const ListPanel = ({title, items}: {title: string; items: string[]}) => (
         {title}
       </Typography>
     </Box>
-    <List>
-      {items.map(item => (
-        <ListItem key={item} sx={{display: 'inline-block'}}>
-          <Chip label={item} />
-        </ListItem>
-      ))}
-    </List>
+    <ChipList chips={items} />
   </Paper>
 );
 
 export const SectionIntro = () => (
-  <Grid container size={12}>
-    <Typography typography="h2" hidden>
-      Intro
-    </Typography>
+  <Grid container size={12} spacing={2}>
+    <SectionHeader title="Tim Poliquin - Game Developer" />
     <Grid container spacing={2}>
       <Grid container direction="column" size={{xs: 12, lg: 9}} spacing={2}>
         <Grid size={12} flexGrow={1}>
@@ -102,7 +103,7 @@ export const SectionIntro = () => (
                     title="Discord Profile"
                     target="discord"
                   >
-                    <Chat fontSize="medium" />
+                    <Discord />
                   </Link>
                 </ListItem>
                 <ListItem>

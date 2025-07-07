@@ -1,111 +1,114 @@
-import React, {PropsWithChildren} from 'react';
+import React from 'react';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Link from '@mui/material/Link';
-import {ImageListItem, Typography} from '@mui/material';
-import ImageList from '@mui/material/ImageList';
-import {styled} from '@mui/material/styles';
+import {Typography} from '@mui/material';
 import {GitHub} from '@mui/icons-material';
 import {SectionHeader} from 'components/section-header/SectionHeader';
+import {
+  ExternalLink,
+  ProjectCard,
+} from '../../components/project-card/ProjectCard';
+import {Steam} from 'components/icons/Steam';
+import {ChipList} from '../../components/chip/ChipList';
+import {OlympiaSteamEmbed, OlympiaYouTubeEmbed} from './OlympiaYouTubeEmbed';
+import {Media} from '../../components/media-carousel/MediaCarousel';
+import {PortfolioInception} from './PortfolioInception';
 
-const olympiaImages = [
-  'projects/olympia/olympia-01.jpg',
-  'projects/olympia/olympia-02.jpg',
-  'projects/olympia/olympia-03.jpg',
+const olympiaImages = Array(12)
+  .fill(0)
+  .map(
+    (_, idx) =>
+      `projects/olympia/olympia-${(idx + 1).toString().padStart(2, '0')}.jpg`,
+  );
+
+const olympiaLinks: ExternalLink[] = [
+  {
+    Icon: <GitHub />,
+    href: 'https://github.com/TimPoliquin/unity-olympia-festival-of-the-gods',
+    title: 'Olympia: Festival of the Gods - on GitHub',
+  },
+  {
+    Icon: <Steam />,
+    href: 'https://store.steampowered.com/app/3316450/Olympia_Festival_of_the_Gods',
+    title: 'Olympia: Festival of the Gods - on Steam',
+  },
 ];
 
-const LinkList = styled('ul')(() => ({
-  listStyle: 'none',
-  padding: 0,
-  textAlign: 'right',
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'flex-end',
-  margin: 0,
-}));
-
-const LinkRowItem = styled('li')(({theme}) => ({
-  '&+&': {
-    paddingLeft: theme.spacing(1),
+const olympiaMedia: Media[] = [
+  {
+    component: <OlympiaYouTubeEmbed />,
+    key: 'olympia-trailer-embed',
   },
-}));
+  ...olympiaImages.map(src => ({
+    component: (
+      <img
+        src={src}
+        alt="olympia gameplay"
+        loading="lazy"
+        style={{borderRadius: 4}}
+      />
+    ),
+    key: src,
+  })),
+  {
+    component: <OlympiaSteamEmbed />,
+    key: 'olympia-steam-embed',
+  },
+];
 
-const LinkRow = ({
-  title,
-  href,
-  children,
-}: PropsWithChildren<{title: string; href: string}>) => (
-  <LinkRowItem key={href}>
-    <Link href={href} title={title}>
-      {children}
-    </Link>
-  </LinkRowItem>
-);
+const portfolioLinks: ExternalLink[] = [
+  {
+    Icon: <GitHub />,
+    href: 'https://github.com/TimPoliquin/portfolio-react',
+    title: 'Tim Poliquin - Game Developer Portfolio - GitHub',
+  },
+];
 
-const Steam = styled('img')(() => ({
-  width: 20,
-  height: 20,
-}));
+const portfolioMedia: Media[] = [
+  {component: <PortfolioInception />, key: 'portfolio-inception'},
+];
 
 export const SectionProjects = () => (
   <Grid container spacing={2}>
     <SectionHeader title="Shipped Projects" />
-    <Grid container spacing={2}>
-      <Paper sx={{p: 2}}>
-        <Grid container spacing={1}>
-          <Grid size={8}>
-            <Typography typography="h3">
-              Olympia: Festival of the Gods
+    <ProjectCard
+      title="Olympia: Festival of the Gods"
+      links={olympiaLinks}
+      Hero={
+        <Grid container size={12} spacing={2}>
+          <Grid size={12}>
+            <Typography typography="body1">
+              Solo-Developed by Tim Poliquin
             </Typography>
           </Grid>
-          <Grid size={4} justifySelf={'flex-end'}>
-            <LinkList>
-              <LinkRow
-                title="GitHub"
-                href="https://github.com/TimPoliquin/unity-olympia-festival-of-the-gods"
-              >
-                <GitHub />
-              </LinkRow>
-              <LinkRow
-                title="Steam"
-                href="https://store.steampowered.com/app/3316450/Olympia_Festival_of_the_Gods/"
-              >
-                <Steam src="steam.png" alt="steam logo" />
-              </LinkRow>
-            </LinkList>
-          </Grid>
-          <Grid container direction="column" size={{xs: 12, md: 5}} spacing={2}>
-            <Grid size={12}>
-              <Typography typography="body1">
-                Solo-Developed by Tim Poliquin
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid size={{xs: 12, lg: 7}}>
-            <iframe
-              title="Olympia Steam Embedd"
-              src="https://store.steampowered.com/widget/3316450/"
-              frameBorder="0"
-              width="646"
-              height="190"
+        </Grid>
+      }
+      Media={olympiaMedia}
+      Footer={
+        <Grid container size={12} textAlign="center">
+          <Grid size={4}>
+            <ChipList
+              chips={[
+                'Unity 6',
+                'C#',
+                'Steamworks',
+                'Blender',
+                'Gimp',
+                'Opponent AI',
+              ]}
             />
           </Grid>
-          <Grid size={12}>
-            <ImageList cols={3} rowHeight={256} gap={16}>
-              {olympiaImages.map(image => (
-                <ImageListItem key={image}>
-                  <img
-                    src={image}
-                    alt="olympia gameplay"
-                    loading="lazy"
-                    style={{borderRadius: 4}}
-                  />
-                </ImageListItem>
-              ))}
-            </ImageList>
-          </Grid>
         </Grid>
-      </Paper>
-    </Grid>
+      }
+    />
+    <ProjectCard
+      title="This Portfolio!"
+      links={portfolioLinks}
+      Media={portfolioMedia}
+      Footer={
+        <Grid size={12}>
+          <ChipList chips={['React', 'TypeScript', 'MUI', 'HTML', 'CSS']} />
+        </Grid>
+      }
+    />
   </Grid>
 );
