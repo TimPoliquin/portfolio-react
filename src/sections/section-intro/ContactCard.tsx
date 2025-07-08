@@ -27,7 +27,9 @@ export const ContactCard = ({children}: PropsWithChildren) => (
   <ContentCard sx={{height: '100%', width: '100%'}}>
     <Grid container size={12} spacing={1}>
       <Grid size={12}>
-        <Typography typography="h3">Contact</Typography>
+        <Typography typography="h3" color="success">
+          Contact
+        </Typography>
       </Grid>
       <Grid size={12}>
         <Divider />

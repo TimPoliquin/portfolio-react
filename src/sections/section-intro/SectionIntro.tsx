@@ -14,6 +14,7 @@ import {Kotlin} from '../../components/icons/Kotlin';
 import {Golang} from '../../components/icons/Golang';
 import {Java} from '../../components/icons/Java';
 import {CPlusPlus} from '../../components/icons/CPlusPlus';
+import {ContentCard} from '../../components/content-card/ContentCard';
 
 const languages: (ChipProps | string)[] = [
   {label: 'C++', icon: <CPlusPlus />},
@@ -64,33 +65,14 @@ const ListPanel = ({
 
 export const SectionIntro = () => (
   <Grid container size={12} spacing={2}>
-    <Grid size={12}>
-      <Typography typography="h3" color="success">
-        Game Developer and Full-Stack Engineer
-      </Typography>
-    </Grid>
-    <Divider
-      sx={{
-        height: '1px',
-        width: '100%',
-      }}
-    />
-    <Grid container size={12}>
-      <Grid size={6}>
-        <Typography typography="caption" color="textSecondary">
-          Location
-        </Typography>
-        <Typography typography="subtitle1">Raleigh, NC</Typography>
-      </Grid>
-      <Grid size={6}>
-        <Typography typography="caption" color="textSecondary">
-          Experience
-        </Typography>
-        <Typography typography="subtitle1">16 Years</Typography>
-      </Grid>
-    </Grid>
-    <ListPanel title="Languages" items={languages} />
-    <ListPanel title="Game Engines" items={gameEngines} />
-    <ListPanel title="Web Technologies" items={webTechnologies} />
+    <ContentCard sx={{width: '100%'}}>
+      <ListPanel title="Languages" items={languages} />
+    </ContentCard>
+    <ContentCard sx={{width: '100%'}}>
+      <ListPanel title="Game Engines" items={gameEngines} />
+    </ContentCard>
+    <ContentCard sx={{width: '100%'}}>
+      <ListPanel title="Web Technologies" items={webTechnologies} />
+    </ContentCard>
   </Grid>
 );

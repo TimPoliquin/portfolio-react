@@ -32,11 +32,13 @@ function App(props: {disableCustomTheme?: boolean}) {
             </ContentCard>
           </Grid>
           <Grid size={12} flexShrink={0}>
+            <SectionIntro />
+          </Grid>
+          <Grid size={12} flexShrink={0}>
             <ContactCard />
           </Grid>
         </Grid>
-        <Grid size={{xs: 12, lg: 8}}>
-          <SectionIntro />
+        <Grid container size={{xs: 12, lg: 8}} spacing={3} direction="column">
           <SectionProjects />
           <SectionPrototypes />
           <SectionCoursework />
