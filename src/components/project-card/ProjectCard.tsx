@@ -5,8 +5,8 @@ import {styled} from '@mui/material/styles';
 import Link from '@mui/material/Link';
 import {Media, MediaCarousel} from '../media-carousel/MediaCarousel';
 import {ContentCard} from '../content-card/ContentCard';
-import Box from '@mui/material/Box';
-import {Divider} from '@mui/material';
+import {Divider, Tooltip} from '@mui/material';
+import {CalendarMonth} from '@mui/icons-material';
 
 const LinkList = styled('ul')(() => ({
   listStyle: 'none',
@@ -36,9 +36,11 @@ const LinkRow = ({
   children,
 }: PropsWithChildren<{title: string; href: string}>) => (
   <LinkRowItem key={href}>
-    <Link href={href} title={title} target="_blank" color="textPrimary">
-      {children}
-    </Link>
+    <Tooltip title={title}>
+      <Link href={href} title={title} target="_blank" color="textPrimary">
+        {children}
+      </Link>
+    </Tooltip>
   </LinkRowItem>
 );
 
@@ -76,7 +78,18 @@ export const ProjectCard = ({
             </Typography>
           </Grid>
           {links ? (
-            <Grid size={3} justifySelf={'flex-end'}>
+            <Grid
+              container
+              size={3}
+              justifySelf={'flex-end'}
+              justifyContent="right"
+              alignItems="center"
+              textAlign="right"
+              display="flex"
+              direction="row"
+              spacing={1}
+            >
+              <Typography color="textSecondary">Check it out:</Typography>
               <LinkList>
                 {links.map(link => (
                   <LinkRow title={link.title} href={link.href}>
@@ -87,7 +100,7 @@ export const ProjectCard = ({
             </Grid>
           ) : null}
           {subtitle ? (
-            <Grid size={9}>
+            <Grid size={6} flexGrow={0} flexShrink={1}>
               <Typography typography="h4" color="success">
                 {subtitle}
               </Typography>
@@ -95,25 +108,41 @@ export const ProjectCard = ({
           ) : null}
           {timeframe ? (
             <Grid
-              size={3}
+              size={6}
               flexGrow={1}
-              justifySelf={'flex-end'}
-              textAlign="right"
+              flexShrink={0}
+              justifyItems={'flex-end'}
             >
-              <Box
-                component="span"
+              <Grid
+                container
+                size={4}
+                direction="row"
+                spacing={1}
                 border={1}
-                padding={0.5}
-                paddingLeft={1}
-                paddingRight={1}
+                paddingX={1}
+                paddingY={0.5}
                 borderRadius={1}
-                display="inline-block"
-                minWidth={125}
                 textAlign="center"
                 borderColor="rgb(255, 255, 255, .35)"
+                wrap="nowrap"
+                width="auto"
               >
-                <Typography typography="caption">{timeframe}</Typography>
-              </Box>
+                <Grid flexGrow={0} flexShrink={1} alignContent="center">
+                  <Typography color="textSecondary">
+                    <CalendarMonth />
+                  </Typography>
+                </Grid>
+                <Grid
+                  size={8}
+                  flexGrow={1}
+                  flexShrink={0}
+                  alignContent="center"
+                >
+                  <Typography typography="caption" color="textSecondary" noWrap>
+                    {timeframe}
+                  </Typography>
+                </Grid>
+              </Grid>
             </Grid>
           ) : null}
           <Grid size={12}>
