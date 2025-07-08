@@ -6,9 +6,8 @@ export const SectionHeader = ({title}: {title: string}) => (
   <Grid size={12} sx={{paddingTop: 4, paddingBottom: 0}}>
     <Typography
       typography="h2"
+      color="textPrimary"
       sx={{
-        textTransform: 'uppercase',
-        textAlign: 'center',
         textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
       }}
     >

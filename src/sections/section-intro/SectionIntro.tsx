@@ -1,139 +1,96 @@
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Link from '@mui/material/Link';
 import React from 'react';
-import {styled} from '@mui/material/styles';
-import {Card, CardContent, Theme, Typography} from '@mui/material';
-import {Email, GitHub, LinkedIn} from '@mui/icons-material';
-import {ChipList} from 'components/chip/ChipList';
-import {SectionHeader} from '../../components/section-header/SectionHeader';
-import {Discord} from '../../components/icons/Discord';
+import {Divider, Typography} from '@mui/material';
+import {ChipList, ChipListProps, ChipProps} from 'components/chip/ChipList';
+import {UnrealEngine} from '../../components/icons/UnrealEngine';
+import {Unity} from '../../components/icons/Unity';
+import {TypeScript} from 'components/icons/TypeScript';
+import {ReactIcon} from '../../components/icons/React';
+import {NodeJS} from '../../components/icons/NodeJS';
+import {GraphQL} from '../../components/icons/GraphQL';
+import {SpringBoot} from 'components/icons/SpringBoot';
+import {JavaScript} from '../../components/icons/JavaScript';
+import {Kotlin} from '../../components/icons/Kotlin';
+import {Golang} from '../../components/icons/Golang';
+import {Java} from '../../components/icons/Java';
+import {CPlusPlus} from '../../components/icons/CPlusPlus';
 
-const languages = [
-  'C++',
+const languages: (ChipProps | string)[] = [
+  {label: 'C++', icon: <CPlusPlus />},
   'C#',
-  'Java',
-  'TypeScript',
-  'JavaScript',
-  'Kotlin',
+  {label: 'Java', icon: <Java />},
+  {label: 'TypeScript', icon: <TypeScript />},
+  {label: 'JavaScript', icon: <JavaScript />},
+  {label: 'Kotlin', icon: <Kotlin />},
+  {label: 'Golang', icon: <Golang />},
   'HTML',
   'CSS',
-  'Golang',
 ];
-const gameEngines = ['Unreal Engine 5', 'Unity 6'];
-const webTechnologies = [
-  'React',
-  'Node.js',
+const gameEngines: (ChipProps | string)[] = [
+  {label: 'Unreal Engine 5', icon: <UnrealEngine />},
+  {label: 'Unity 6', icon: <Unity />},
+];
+const webTechnologies: (ChipProps | string)[] = [
+  {label: 'React', icon: <ReactIcon />},
+  {label: 'Node.js', icon: <NodeJS />},
   'Emotion',
   'PCSS',
-  'GraphQL',
-  'SpringBoot',
+  {label: 'GraphQL', icon: <GraphQL />},
+  {label: 'SpringBoot', icon: <SpringBoot />},
   'Redis',
 ];
-const ListItem = styled('li')(({theme}: {theme: Theme}) => ({
-  margin: theme.spacing(0.5),
-  '& svg': {
-    fill: theme.palette.text.secondary,
-  },
-  '&:hover svg': {
-    fill: theme.palette.text.primary,
-  },
-}));
-const List = styled('ul')(({theme}) => ({
-  marginBottom: theme.spacing(1),
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'left',
-  flexWrap: 'wrap',
-  listStyle: 'none',
-  padding: 0,
-}));
 
-const ListPanel = ({title, items}: {title: string; items: string[]}) => (
-  <Paper
-    sx={{
-      display: 'block',
-      flexGrow: 1,
-      p: 2,
-    }}
-  >
-    <Box>
-      <Typography typography="h3" display={'block'}>
+const ListPanel = ({
+  title,
+  items,
+}: {
+  title: string;
+  items: ChipListProps['chips'];
+}) => (
+  <Grid container size={12} spacing={1}>
+    <Grid size={12}>
+      <Typography typography="h3" color="success">
         {title}
       </Typography>
-    </Box>
-    <ChipList chips={items} />
-  </Paper>
+    </Grid>
+    <Grid size={12}>
+      <Divider />
+    </Grid>
+    <Grid size={12}>
+      <ChipList chips={items} />
+    </Grid>
+  </Grid>
 );
 
 export const SectionIntro = () => (
   <Grid container size={12} spacing={2}>
-    <SectionHeader title="Tim Poliquin - Game Developer" />
-    <Grid container spacing={2}>
-      <Grid container direction="column" size={{xs: 12, lg: 9}} spacing={2}>
-        <Grid size={12} flexGrow={1}>
-          <Card variant="elevation" sx={{height: '100%'}}>
-            <CardContent>
-              <Typography typography="h3">Greetings!</Typography>
-              <Typography variant="body1">
-                I'm Tim Poliquin, a game developer and full-stack web engineer
-                with over 15 years of professional experience.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid size={12} flexShrink={1} flexBasis={0}>
-          <Card variant="elevation" sx={{height: '100%'}}>
-            <CardContent>
-              <Typography typography="h3">Contacts</Typography>
-              <List>
-                <ListItem>
-                  <Link
-                    href="mailto:tim.poliquin@gmail.com"
-                    title="Send Email"
-                    target="email"
-                  >
-                    <Email fontSize="medium" />
-                  </Link>
-                </ListItem>
-                <ListItem>
-                  <Link
-                    href="https://discordapp.com/users/530118800360734720"
-                    title="Discord Profile"
-                    target="discord"
-                  >
-                    <Discord />
-                  </Link>
-                </ListItem>
-                <ListItem>
-                  <Link
-                    href="https://www.linkedin.com/in/timpoliquin/"
-                    title="LinkedIn Profile"
-                    target="linkedin"
-                  >
-                    <LinkedIn fontSize="medium" />
-                  </Link>
-                </ListItem>
-                <ListItem>
-                  <Link
-                    href="https://github.com/TimPoliquin"
-                    title="GitHub Profile"
-                    target="github"
-                  >
-                    <GitHub fontSize="medium" />
-                  </Link>
-                </ListItem>
-              </List>
-            </CardContent>
-          </Card>
-        </Grid>
+    <Grid size={12}>
+      <Typography typography="h3" color="success">
+        Game Developer and Full-Stack Engineer
+      </Typography>
+    </Grid>
+    <Divider
+      sx={{
+        height: '1px',
+        width: '100%',
+      }}
+    />
+    <Grid container size={12}>
+      <Grid size={6}>
+        <Typography typography="caption" color="textSecondary">
+          Location
+        </Typography>
+        <Typography typography="subtitle1">Raleigh, NC</Typography>
       </Grid>
-      <Grid container size={{xs: 12, lg: 3}} spacing={2}>
-        <ListPanel title="Languages" items={languages} />
-        <ListPanel title="Game Engines" items={gameEngines} />
-        <ListPanel title="Web Tech" items={webTechnologies} />
+      <Grid size={6}>
+        <Typography typography="caption" color="textSecondary">
+          Experience
+        </Typography>
+        <Typography typography="subtitle1">16 Years</Typography>
       </Grid>
     </Grid>
+    <ListPanel title="Languages" items={languages} />
+    <ListPanel title="Game Engines" items={gameEngines} />
+    <ListPanel title="Web Technologies" items={webTechnologies} />
   </Grid>
 );

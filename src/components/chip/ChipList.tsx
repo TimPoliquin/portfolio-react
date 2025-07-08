@@ -6,7 +6,7 @@ const ListItem = styled('li')(({theme}: {theme: Theme}) => ({
   margin: theme.spacing(0.5),
 }));
 const List = styled('ul')(({theme}) => ({
-  marginBottom: theme.spacing(1),
+  margin: 0,
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'left',
@@ -15,12 +15,35 @@ const List = styled('ul')(({theme}) => ({
   padding: 0,
 }));
 
-export const ChipList = ({chips}: {chips: string[]}) => (
+export interface ChipProps {
+  label: string;
+  icon?: React.ReactElement;
+}
+
+export interface ChipListProps {
+  chips: (ChipProps | string)[];
+}
+
+const ChipRow = ({label, icon}: ChipProps) => (
+  <ListItem key={label}>
+    <Chip
+      variant="outlined"
+      label={label}
+      sx={{borderRadius: 1, paddingLeft: icon ? 1 : undefined}}
+      icon={icon}
+      color="default"
+    />
+  </ListItem>
+);
+
+export const ChipList = ({chips}: ChipListProps) => (
   <List>
-    {chips.map(chip => (
-      <ListItem key={chip}>
-        <Chip label={chip} />
-      </ListItem>
-    ))}
+    {chips.map(chip =>
+      typeof chip === 'string' ? (
+        <ChipRow label={chip} />
+      ) : (
+        <ChipRow {...chip} />
+      ),
+    )}
   </List>
 );

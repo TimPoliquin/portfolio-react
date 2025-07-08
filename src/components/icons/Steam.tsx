@@ -1,6 +1,6 @@
 import React from 'react';
 import {SvgIcon} from '@mui/material';
-import {ReactComponent as SteamSVG} from './steam.svg';
+import {ReactComponent as SteamSVG} from './svg/steam.svg';
 
 export const Steam = () => (
   <SvgIcon>

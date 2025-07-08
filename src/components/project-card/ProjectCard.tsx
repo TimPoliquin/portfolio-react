@@ -1,11 +1,12 @@
 import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import React, {PropsWithChildren} from 'react';
 import {styled} from '@mui/material/styles';
 import Link from '@mui/material/Link';
-import {CardContent} from '@mui/material';
 import {Media, MediaCarousel} from '../media-carousel/MediaCarousel';
+import {ContentCard} from '../content-card/ContentCard';
+import Box from '@mui/material/Box';
+import {Divider} from '@mui/material';
 
 const LinkList = styled('ul')(() => ({
   listStyle: 'none',
@@ -50,62 +51,91 @@ export interface ExternalLink {
 interface Props {
   title: string;
   subtitle?: string;
+  timeframe?: string;
   links?: ExternalLink[];
+  media?: Media[];
   Hero?: React.ReactNode;
-  Media?: Media[];
   Footer?: React.ReactNode;
 }
 export const ProjectCard = ({
   title,
   subtitle,
+  timeframe,
   links,
   Hero,
-  Media,
+  media,
   Footer,
 }: Props) => {
   return (
     <Grid container size={12} spacing={2}>
-      <Card sx={{width: '100%'}}>
-        <CardContent>
-          <Grid size={12} container spacing={1}>
-            <Grid size={9}>
-              <Typography typography="h3">{title}</Typography>
-              {subtitle ? (
-                <Typography typography="h4">{subtitle}</Typography>
-              ) : null}
-            </Grid>
-            {links ? (
-              <Grid size={3} justifySelf={'flex-end'}>
-                <LinkList>
-                  {links.map(link => (
-                    <LinkRow title={link.title} href={link.href}>
-                      {link.Icon}
-                    </LinkRow>
-                  ))}
-                </LinkList>
-              </Grid>
-            ) : null}
-            {Hero ? (
-              <Grid container direction="column" size={12} spacing={2}>
-                <Grid size={12} justifyContent="center">
-                  {Hero}
-                </Grid>
-              </Grid>
-            ) : null}
-            {Media ? (
-              <>
-                <Grid size={12}>
-                  <Typography typography={'h4'}>Media</Typography>
-                </Grid>
-                <Grid size={12} padding={2}>
-                  <MediaCarousel Media={Media} />
-                </Grid>
-              </>
-            ) : null}
-            {Footer ? <Grid size={12}>{Footer}</Grid> : null}
+      <ContentCard sx={{width: '100%'}}>
+        <Grid size={12} container spacing={1}>
+          <Grid size={9}>
+            <Typography typography="h3" color="success">
+              {title}
+            </Typography>
           </Grid>
-        </CardContent>
-      </Card>
+          {links ? (
+            <Grid size={3} justifySelf={'flex-end'}>
+              <LinkList>
+                {links.map(link => (
+                  <LinkRow title={link.title} href={link.href}>
+                    {link.Icon}
+                  </LinkRow>
+                ))}
+              </LinkList>
+            </Grid>
+          ) : null}
+          {subtitle ? (
+            <Grid size={9}>
+              <Typography typography="h4" color="success">
+                {subtitle}
+              </Typography>
+            </Grid>
+          ) : null}
+          {timeframe ? (
+            <Grid
+              size={3}
+              flexGrow={1}
+              justifySelf={'flex-end'}
+              textAlign="right"
+            >
+              <Box
+                component="span"
+                border={1}
+                padding={0.5}
+                paddingLeft={1}
+                paddingRight={1}
+                borderRadius={1}
+                display="inline-block"
+                minWidth={125}
+                textAlign="center"
+                borderColor="rgb(255, 255, 255, .35)"
+              >
+                <Typography typography="caption">{timeframe}</Typography>
+              </Box>
+            </Grid>
+          ) : null}
+          <Grid size={12}>
+            <Divider />
+          </Grid>
+          {Hero ? (
+            <Grid container direction="column" size={12} spacing={2}>
+              <Grid size={12} justifyContent="center">
+                {Hero}
+              </Grid>
+            </Grid>
+          ) : null}
+          {media ? (
+            <>
+              <Grid size={12} padding={2}>
+                <MediaCarousel Media={media} />
+              </Grid>
+            </>
+          ) : null}
+          {Footer ? <Grid size={12}>{Footer}</Grid> : null}
+        </Grid>
+      </ContentCard>
     </Grid>
   );
 };

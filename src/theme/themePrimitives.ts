@@ -1,4 +1,10 @@
-import {alpha, createTheme, PaletteMode, Shadows} from '@mui/material/styles';
+import {
+  alpha,
+  createTheme,
+  PaletteMode,
+  Shadows,
+  TypographyVariants,
+} from '@mui/material/styles';
 
 declare module '@mui/material/Paper' {
   interface PaperPropsVariantOverrides {
@@ -31,29 +37,29 @@ const customShadows: Shadows = [...defaultTheme.shadows];
 export const header = 'rgb(207, 255, 129)';
 
 export const brand = {
-  50: 'hsl(210, 100%, 95%)',
-  100: 'hsl(210, 100%, 92%)',
-  200: 'hsl(210, 100%, 80%)',
-  300: 'hsl(210, 100%, 65%)',
-  400: 'hsl(210, 98%, 48%)',
-  500: 'hsl(210, 98%, 42%)',
-  600: 'hsl(210, 98%, 55%)',
-  700: 'hsl(210, 100%, 35%)',
-  800: 'hsl(210, 100%, 16%)',
-  900: 'hsl(210, 100%, 21%)',
+  50: 'hsl(82.86, 100%, 95%)',
+  100: 'hsl(82.86, 100%, 92%)',
+  200: 'hsl(82.86, 100%, 75.29%)',
+  300: 'hsl(82.86, 100%, 65%)',
+  400: 'hsl(82.86, 100%, 48%)',
+  500: 'hsl(82.86, 95%, 42%)',
+  600: 'hsl(82.86, 85%, 55%)',
+  700: 'hsl(82.86, 85%, 35%)',
+  800: 'hsl(82.86, 80%, 16%)',
+  900: 'hsl(82.86, 80%, 12%)',
 };
 
 export const gray = {
-  50: 'hsl(220, 35%, 97%)',
-  100: 'hsl(220, 30%, 94%)',
-  200: 'hsl(220, 20%, 88%)',
-  300: 'hsl(220, 20%, 80%)',
-  400: 'hsl(220, 20%, 65%)',
-  500: 'hsl(220, 20%, 42%)',
-  600: 'hsl(220, 20%, 35%)',
-  700: 'hsl(220, 20%, 25%)',
-  800: 'hsl(220, 30%, 6%)',
-  900: 'hsl(220, 35%, 3%)',
+  50: 'hsl(223.6, 35%, 97%)',
+  100: 'hsl(223.6, 30%, 94%)',
+  200: 'hsl(223.6, 20%, 88%)',
+  300: 'hsl(223.6, 20%, 80%)',
+  400: 'hsl(223.6, 20%, 65%)',
+  500: 'hsl(223.6, 20%, 42%)',
+  600: 'hsl(223.6, 20%, 35%)',
+  700: 'hsl(223.6, 20%, 25%)',
+  800: 'hsl(223.6, 30%, 6%)',
+  900: 'hsl(223.6, 35%, 3%)',
 };
 
 export const green = {
@@ -352,44 +358,39 @@ export const colorSchemes = {
   },
 };
 
-export const typography = {
-  fontFamily: 'Roboto, sans-serif',
+export const typography: Partial<TypographyVariants> = {
+  fontFamily: 'Inter, sans-serif',
   h1: {
     fontSize: defaultTheme.typography.pxToRem(48),
     fontWeight: 600,
     lineHeight: 1.2,
     letterSpacing: -0.5,
-    color: header,
   },
   h2: {
-    fontSize: defaultTheme.typography.pxToRem(36),
-    fontWeight: 600,
-    lineHeight: 1.2,
-    color: header,
-  },
-  h3: {
-    fontSize: defaultTheme.typography.pxToRem(30),
-    lineHeight: 1.2,
-    color: header,
-  },
-  h4: {
     fontSize: defaultTheme.typography.pxToRem(24),
     fontWeight: 600,
-    lineHeight: 1.5,
-    color: header,
+    lineHeight: 1.2,
   },
-  h5: {
+  h3: {
     fontSize: defaultTheme.typography.pxToRem(20),
     fontWeight: 600,
-    color: header,
+    lineHeight: 1.2,
+  },
+  h4: {
+    fontSize: defaultTheme.typography.pxToRem(16),
+    lineHeight: 1.5,
+    fontWeight: 400,
+  },
+  h5: {
+    fontSize: defaultTheme.typography.pxToRem(14),
+    fontWeight: 600,
   },
   h6: {
-    fontSize: defaultTheme.typography.pxToRem(18),
-    fontWeight: 600,
-    color: header,
+    fontSize: defaultTheme.typography.pxToRem(14),
+    fontWeight: 400,
   },
   subtitle1: {
-    fontSize: defaultTheme.typography.pxToRem(18),
+    fontSize: defaultTheme.typography.pxToRem(16),
   },
   subtitle2: {
     fontSize: defaultTheme.typography.pxToRem(14),
