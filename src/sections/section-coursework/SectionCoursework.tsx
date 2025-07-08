@@ -10,6 +10,7 @@ import {ChipList} from '../../components/chip/ChipList';
 import {Media} from '../../components/media-carousel/MediaCarousel';
 import {Image} from '../../components/image/Image';
 import {Typography} from '@mui/material';
+import {makeMedia} from '../../utils/makeMedia';
 
 const udemyGasLinks: ExternalLink[] = [
   {
@@ -25,6 +26,12 @@ const udemyGasLinks: ExternalLink[] = [
 ];
 
 const udemyGasMedia: Media[] = [
+  ...makeMedia({
+    pathname: 'coursework/udemy-gas',
+    title: 'aura',
+    extension: 'png',
+    size: 8,
+  }),
   {
     component: (
       <Image

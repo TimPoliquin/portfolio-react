@@ -8,6 +8,7 @@ import {
 import {GitHub} from '@mui/icons-material';
 import {Media} from 'components/media-carousel/MediaCarousel';
 import {Typography} from '@mui/material';
+import {makeMedia} from '../../utils/makeMedia';
 
 const fishingMinigameLinks: ExternalLink[] = [
   {
@@ -16,6 +17,12 @@ const fishingMinigameLinks: ExternalLink[] = [
     title: 'Fishing Mini-Game - on GitHub',
   },
 ];
+const fishingImages = makeMedia({
+  pathname: 'prototypes/fishing',
+  title: 'fishing',
+  extension: 'png',
+  size: 12,
+});
 const fishingMinigameMedia: Media[] = [
   {
     component: (
@@ -32,6 +39,7 @@ const fishingMinigameMedia: Media[] = [
     ),
     key: 'technical-review-video',
   },
+  ...fishingImages,
 ];
 
 export const ProjectUEFishing = () => (
