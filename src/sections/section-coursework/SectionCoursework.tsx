@@ -11,6 +11,7 @@ import {Media} from '../../components/media-carousel/MediaCarousel';
 import {Image} from '../../components/image/Image';
 import {Typography} from '@mui/material';
 import {makeMedia} from '../../utils/makeMedia';
+import {SlashYouTubeEmbed} from './SlashYouTubeEmbed';
 
 const udemyGasLinks: ExternalLink[] = [
   {
@@ -53,6 +54,10 @@ const udemyCPPLinks: ExternalLink[] = [
 ];
 
 const udemyCPPMedia: Media[] = [
+  {
+    component: <SlashYouTubeEmbed />,
+    key: 'slash-youtube-demo',
+  },
   {
     component: (
       <Image

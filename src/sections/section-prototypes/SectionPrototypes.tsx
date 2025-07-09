@@ -4,6 +4,7 @@ import {SectionHeader} from 'components/section-header/SectionHeader';
 import {ProjectUEBlackbird} from './ProjectUEBlackbird';
 import {ProjectUEFishing} from './ProjectUEFishing';
 import {ProjectUEDialogInventory} from './ProjectUEDialogInventory';
+import {ProjectUnityTowerDefense} from './ProjectUnityTowerDefense';
 
 export const SectionPrototypes = () => (
   <Grid container size={12} spacing={2}>
@@ -11,5 +12,6 @@ export const SectionPrototypes = () => (
     <ProjectUEBlackbird />
     <ProjectUEFishing />
     <ProjectUEDialogInventory />
+    <ProjectUnityTowerDefense />
   </Grid>
 );
