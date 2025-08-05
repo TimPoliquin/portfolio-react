@@ -16,7 +16,7 @@ const olympiaImages = Array(12)
   .fill(0)
   .map(
     (_, idx) =>
-      `projects/olympia/olympia-${(idx + 1).toString().padStart(2, '0')}.jpg`,
+      `projects/olympia/olympia-${(idx + 1).toString().padStart(2, '0')}.webp`,
   );
 
 const olympiaLinks: ExternalLink[] = [
@@ -65,7 +65,7 @@ export const ProjectOlympia = () => (
         <Grid size={12}>
           <Typography typography="paragraph" color="textSecondary">
             Olympia: Festival of the Gods is a 2.5D tabletop board game based on
-            Azul: Summer Palace created in Unity 6.0. It supports local
+            Azul: Summer Pavillion created in Unity 6.0. It supports local
             multiplayer against human or AI opponents, and leaderboards via
             Steamworks API.
           </Typography>
