@@ -30,13 +30,13 @@ const udemyGasMedia: Media[] = [
   ...makeMedia({
     pathname: 'coursework/udemy-gas',
     title: 'aura',
-    extension: 'png',
+    extension: 'webp',
     size: 8,
   }),
   {
     component: (
       <Image
-        src="coursework/udemy-gas/udemy-aura-cert.jpg"
+        src="coursework/udemy-gas/udemy-aura-cert.webp"
         alt="Certification for completing the course"
         sx={{height: 337}}
       />
@@ -61,7 +61,7 @@ const udemyCPPMedia: Media[] = [
   {
     component: (
       <Image
-        src="coursework/udemy-ue/udemy-slash-cert.jpg"
+        src="coursework/udemy-ue/udemy-slash-cert.webp"
         alt="Certification for completing the course"
         sx={{height: 337}}
       />

@@ -20,7 +20,7 @@ const fishingMinigameLinks: ExternalLink[] = [
 const fishingImages = makeMedia({
   pathname: 'prototypes/fishing',
   title: 'fishing',
-  extension: 'png',
+  extension: 'webp',
   size: 12,
 });
 const fishingMinigameMedia: Media[] = [
