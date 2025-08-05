@@ -7,6 +7,8 @@ import {
   ExternalLink,
   ProjectCard,
 } from '../../components/project-card/ProjectCard';
+import {Media} from '../../components/media-carousel/MediaCarousel';
+import {UnityTowerDefenseYoutubeEmbed} from './UnityTowerDefenseYoutubeEmbed';
 
 const towerDefenseLinks: ExternalLink[] = [
   {
@@ -21,21 +23,35 @@ const towerDefenseLinks: ExternalLink[] = [
   },
 ];
 
+const towerDefenseMedia: Media[] = [
+  {
+    component: <UnityTowerDefenseYoutubeEmbed />,
+    key: 'tower-defense-embed',
+  },
+];
+
 export const ProjectUnityTowerDefense = () => (
   <ProjectCard
     title="Tower Defense"
     timeframe="July, 2024"
     links={towerDefenseLinks}
+    media={towerDefenseMedia}
     Hero={
       <Grid container size={12} spacing={2}>
         <Grid size={12}>
           <Typography typography="paragraph" color="textSecondary">
-            Fill in information here about the tower defense game
-          </Typography>
-        </Grid>
-        <Grid size={12}>
-          <Typography typography="paragraph" color="textSecondary">
-            This prototype was built in Unity 5.
+            <p>
+              Built in Unity 2022, the Tower Defense featured a day/night cycle
+              in which players could build and improve their bases during the
+              day, and would have to defend the base from oncoming hoards during
+              the night. They player has access to multiple spells and abilities
+              to combat enemies, in addition to base defenses.
+            </p>
+            <p>
+              Special consideration was given to performance to allow for
+              hundreds of units to attack the player and bases without resulting
+              in unplayable slowdown.
+            </p>
           </Typography>
         </Grid>
       </Grid>
