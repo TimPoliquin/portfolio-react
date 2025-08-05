@@ -7,6 +7,8 @@ import {
 } from '../../components/project-card/ProjectCard';
 import {GitHub} from '@mui/icons-material';
 import Typography from '@mui/material/Typography';
+import {Media} from '../../components/media-carousel/MediaCarousel';
+import {BlackbirdYouTubeEmbed} from './BlackbirdYouTubeEmbed';
 
 const blackbirdLinks: ExternalLink[] = [
   {
@@ -15,11 +17,18 @@ const blackbirdLinks: ExternalLink[] = [
     title: 'Blackbird - on GitHub',
   },
 ];
+const blackbirdMedia: Media[] = [
+  {
+    component: <BlackbirdYouTubeEmbed />,
+    key: 'blackbird-demo-2025-07',
+  },
+];
 export const ProjectUEBlackbird = () => (
   <ProjectCard
     title="Blackbird"
     links={blackbirdLinks}
     timeframe="May - July, 2025"
+    media={blackbirdMedia}
     Hero={
       <Grid container size={12} spacing={2}>
         <Grid size={12}>
