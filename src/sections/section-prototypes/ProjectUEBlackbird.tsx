@@ -9,6 +9,7 @@ import {GitHub} from '@mui/icons-material';
 import Typography from '@mui/material/Typography';
 import {Media} from '../../components/media-carousel/MediaCarousel';
 import {BlackbirdYouTubeEmbed} from './BlackbirdYouTubeEmbed';
+import {UnrealEngine} from '../../components/icons/UnrealEngine';
 
 const blackbirdLinks: ExternalLink[] = [
   {
@@ -54,7 +55,7 @@ export const ProjectUEBlackbird = () => (
       <Grid size={12}>
         <ChipList
           chips={[
-            'Unreal Engine 5.6',
+            {label: 'Unreal Engine 5.6', icon: <UnrealEngine />},
             'C++',
             'Gameplay Ability System',
             'Gameplay Tags',

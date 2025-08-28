@@ -7,6 +7,7 @@ import {
 } from '../../components/project-card/ProjectCard';
 import {GitHub} from '@mui/icons-material';
 import {Link, Typography} from '@mui/material';
+import {UnrealEngine} from '../../components/icons/UnrealEngine';
 
 const dialogSystemLinks: ExternalLink[] = [
   {
@@ -62,7 +63,7 @@ export const ProjectUEDialogInventory = () => (
       <Grid size={12}>
         <ChipList
           chips={[
-            'Unreal Engine 5.5',
+            {label: 'Unreal Engine 5.5', icon: <UnrealEngine />},
             'C++',
             'Blueprint',
             'Gameplay Tags',

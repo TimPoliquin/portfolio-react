@@ -12,6 +12,7 @@ import {Image} from '../../components/image/Image';
 import {Typography} from '@mui/material';
 import {makeMedia} from '../../utils/makeMedia';
 import {SlashYouTubeEmbed} from './SlashYouTubeEmbed';
+import {UnrealEngine} from '../../components/icons/UnrealEngine';
 
 const udemyGasLinks: ExternalLink[] = [
   {
@@ -97,7 +98,7 @@ export const SectionCoursework = () => (
         <Grid size={12}>
           <ChipList
             chips={[
-              'Unreal Engine 5.5',
+              {label: 'Unreal Engine 5.4', icon: <UnrealEngine />},
               'C++',
               'Gameplay Ability System',
               'Gameplay Tags',
@@ -132,7 +133,12 @@ export const SectionCoursework = () => (
       Footer={
         <Grid size={12}>
           <ChipList
-            chips={['Unreal Engine 5.6', 'C++', 'Blueprint', 'Udemy']}
+            chips={[
+              {label: 'Unreal Engine 5', icon: <UnrealEngine />},
+              'C++',
+              'Blueprint',
+              'Udemy',
+            ]}
           />
         </Grid>
       }

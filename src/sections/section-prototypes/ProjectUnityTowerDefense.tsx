@@ -9,6 +9,7 @@ import {
 } from '../../components/project-card/ProjectCard';
 import {Media} from '../../components/media-carousel/MediaCarousel';
 import {UnityTowerDefenseYoutubeEmbed} from './UnityTowerDefenseYoutubeEmbed';
+import {Unity} from '../../components/icons/Unity';
 
 const towerDefenseLinks: ExternalLink[] = [
   {
@@ -58,7 +59,7 @@ export const ProjectUnityTowerDefense = () => (
     }
     Footer={
       <Grid size={12}>
-        <ChipList chips={['Unity', 'C#']} />
+        <ChipList chips={[{label: 'Unity', icon: <Unity />}, 'C#']} />
       </Grid>
     }
   />
