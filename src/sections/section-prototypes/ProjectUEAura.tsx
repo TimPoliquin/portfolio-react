@@ -44,7 +44,8 @@ const auraMedia: Media[] = [
 ];
 export const ProjectUEAura = () => (
   <ProjectCard
-    title="Aura - Master of the Elements"
+    title="Aura"
+    subtitle="Master of the Elements"
     links={auraLinks}
     timeframe="April, 2025 - Present"
     media={auraMedia}
