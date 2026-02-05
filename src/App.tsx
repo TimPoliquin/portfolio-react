@@ -12,6 +12,7 @@ import Grid from '@mui/material/Grid';
 import {Typography} from '@mui/material';
 import {AboutMe} from './sections/section-intro/AboutMe';
 import {ContentCard} from './components/content-card/ContentCard';
+import {SectionHighlights} from './sections/section-highlights/SectionHighlights';
 
 function App(props: {disableCustomTheme?: boolean}) {
   return (
@@ -39,6 +40,7 @@ function App(props: {disableCustomTheme?: boolean}) {
           </Grid>
         </Grid>
         <Grid container size={{xs: 12, lg: 8}} spacing={3} direction="column">
+          <SectionHighlights />
           <SectionProjects />
           <SectionPrototypes />
           <SectionCoursework />
