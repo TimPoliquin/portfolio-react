@@ -47,7 +47,7 @@ export const ProjectUEAura = () => (
     title="Aura"
     subtitle="Master of the Elements"
     links={auraLinks}
-    timeframe="April, 2025 - Present"
+    timeframe="April, 2025 - September, 2025"
     media={auraMedia}
     Hero={
       <Grid container size={12} spacing={2}>
@@ -66,8 +66,6 @@ export const ProjectUEAura = () => (
               <li>Horde Mode</li>
               <li>Fishing mini-game</li>
             </ul>
-            Development on this project is on-going, and new features will be
-            listed here as they are added!
           </Typography>
         </Grid>
       </Grid>
